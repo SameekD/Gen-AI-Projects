@@ -219,9 +219,26 @@ if st.session_state["summary_result"]:
 
     st.markdown(summary)
 
-    st.download_button(
-        label="📥 Download Summary (.md)",
-        data=summary,
-        file_name=f"meeting_summary_{style.lower().replace(' ', '_')}.md",
-        mime="text/markdown",
-    )
+    # st.download_button(
+    #     label="📥 Download Summary (.txt)",
+    #     data=summary,
+    #     file_name=f"meeting_summary_{style.lower().replace(' ', '_')}.txt",
+    #     mime="text/plain",
+    # )
+    col_dl1, col_dl2 = st.columns([0.2, 1.2])
+
+    with col_dl1:
+        st.download_button(
+            label="📥 Download (.txt)",
+            data=summary,
+            file_name=f"meeting_summary_{style.lower().replace(' ', '_')}.txt",
+            mime="text/plain",
+        )
+
+    with col_dl2:
+        st.download_button(
+            label="📥 Download (.md)",
+            data=summary,
+            file_name=f"meeting_summary_{style.lower().replace(' ', '_')}.md",
+            mime="text/markdown",
+        )
